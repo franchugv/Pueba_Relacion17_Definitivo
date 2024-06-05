@@ -10,8 +10,8 @@ namespace ClaseProducto
     {
         // CONSTANTES
         // Nombre
-        private const int MIN_NAME = 50;
-        private const int MAX_NAME = 350;
+        private const int MIN_PRICE = 50;
+        private const int MAX_PRICE = 350;
 
 
         private const float INC_IVA = 0.21f;
@@ -72,7 +72,9 @@ namespace ClaseProducto
         public float Precio
         {
             get { return _precio; }
-            set { _precio = value; }
+            set {
+                ValidarPrecio(value, MAX_PRICE, MIN_PRICE);
+                _precio = value; }
         }
 
         /// <summary>
