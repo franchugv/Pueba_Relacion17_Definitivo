@@ -6,7 +6,6 @@ namespace Pueba_Relacion17
     {
 
 
-        [Test]
         public void ValidarConstructorDefecto()
         {
 
@@ -21,15 +20,8 @@ namespace Pueba_Relacion17
                 
             // Validación de las propiedades
             // Validar que la propiedad esté asignada
-
             Assert.IsNotNull(producto.Nombre);
-
             Assert.IsNotNull(producto.Precio);
-
-
-
-
-
         }
        
         [Test]
