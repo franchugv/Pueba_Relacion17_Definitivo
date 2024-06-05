@@ -108,6 +108,12 @@ namespace ClaseProducto
             return precioInc;
         }
 
+        private static void ValidarPrecio(float price, int MAX, int MIN)
+        {
+            if (price > MAX) throw new Exception($"El precio es mayor a {MAX}");
+            if (price < MIN) throw new Exception($"El precio es menor a {MIN}");
+        }
+
 
         // MÉTODOS
     }
