@@ -1,16 +1,10 @@
-using Clase_Producto;
+using ClaseProducto;
 
 namespace Pueba_Relacion17
 {
     public class Tests
     {
 
-
-        [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
 
         [Test]
         public void ValidarConstructorDefecto()
@@ -22,6 +16,10 @@ namespace Pueba_Relacion17
             // Validar que los datos no sean vacíos, debe ser "desconocidos"
             Assert.IsNotNull(producto);
 
+            // Sí no es desconocido, el Asser dará error, el precio IVA está inicializado a -1
+            if (producto.Nombre != "Desconocido" | producto.Precio != 0 | producto.PrecioIVA != -1) Assert.Fail();
+
+                
             // Validación de las propiedades
             // Validar que la propiedad esté asignada
 
@@ -34,7 +32,7 @@ namespace Pueba_Relacion17
 
 
         }
-
+       
         [Test]
         public void ValidarConstructorNombre()
         {
@@ -47,16 +45,14 @@ namespace Pueba_Relacion17
         [Test]
         public void ValidarConstructorCompleto()
         {
-            Producto producto = new Producto("Fran", 20);
+            Producto producto = new Producto("Fran", 40);
 
             // Validar que se calcule el precio IVA
             Assert.AreNotEqual(producto.Precio, producto.PrecioIVA);
 
-            // Validar Precio IVA
-
+            // Validar Precio IVA y verificar que la propiedad funcione correctamente
             producto.Precio = 20;
-
-            Assert.AreNotEqual(producto.PrecioIVA, 840);
+            Assert.AreEqual(producto.PrecioIVA, 24.2f);
 
         }
     }
