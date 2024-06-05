@@ -16,12 +16,6 @@ namespace Pueba_Relacion17
             Assert.IsNotNull(producto);
             // Sí no es desconocido, el Asser dará error, el precio IVA está inicializado a -1
             if (producto.Nombre != "Desconocido" | producto.Precio != 0 | producto.PrecioIVA != -1) Assert.Fail();
-
-                
-            // Validación de las propiedades
-            // Validar que la propiedad esté asignada
-            Assert.IsNotNull(producto.Nombre);
-            Assert.IsNotNull(producto.Precio);
         }
        
         [Test]
@@ -29,7 +23,7 @@ namespace Pueba_Relacion17
         {
             Producto productoNombre = new Producto("Fran");
             // Validar que el precio no sea nulo
-            Assert.IsNotNull(productoNombre.Precio);
+            if (productoNombre.Precio != 0 | productoNombre.PrecioIVA != -1) Assert.Fail();
         }
 
         [Test]
